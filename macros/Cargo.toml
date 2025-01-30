@@ -1,0 +1,23 @@
+[package]
+name = "name-id-macros"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tin Švagelj <tin.svagelj@live.com>"]
+license = "MIT OR Apache-2.0 OR Zlib"
+description = "Support macros for compile-time hash ID creation"
+
+[lib]
+proc-macro = true
+
+[features]
+default = [ "ahash" ]
+ahash = [ "dep:ahash" ]
+
+# Internal
+_nested_doc = []
+
+[dependencies]
+proc-macro2 = "1.0"
+syn = { version = "2", features = ["full"] }
+quote = "1"
+ahash = { version = "0.8.11", optional = true, default-features = false }

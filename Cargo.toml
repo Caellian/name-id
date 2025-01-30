@@ -1,0 +1,21 @@
+[package]
+name = "name-id"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tin Švagelj <tin.svagelj@live.com>"]
+license = "MIT OR Apache-2.0 OR Zlib"
+
+[features]
+default = ["debug_name", "ahash", "alloc", "detect_collisions"]
+alloc = []
+detect_collisions = ["alloc"]
+fixed_size = []
+debug_name = []
+
+# Hashers
+ahash = ["dep:ahash", "name-id-macros/ahash"]
+
+[dependencies]
+name-id-macros = { path = "macros", version = "0.1.0", default-features = false, features = ["_nested_doc"]}
+
+ahash = { version = "0.8.11", optional = true, default-features = false }
